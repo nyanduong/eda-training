@@ -1,0 +1,150 @@
+/* Slide 003: PDF page 4, with page 5 as the expanded-card state.
+ * Measured in Affinity using the PDF because its photo placement differs from IDML.
+ * Canvas: 1920 x 1280. Horizontal / 19.2 = vw; vertical / 12.8 = vh.
+ * Original photo circle: (923,200.13), diameter 742; crop includes its shadow.
+ * Card headers: (255,203.92) and (255.5,625.92), approximately 532 x 172.
+ * Text stays live HTML; artwork uses one dimension plus its original aspect ratio.
+ */
+.slide-three.bg {
+  background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat;
+}
+.slide-three .green { color: #417c56; }
+.baseline-text {
+  top: calc(var(--baseline) - var(--leading) / 2 - 0.35em);
+  line-height: var(--leading);
+  white-space: nowrap;
+}
+.slide-three .main-title {
+  --baseline: 8.77vh;
+  --leading: 4.03vh;
+  left: 8.44vw;
+  width: 75.03vw;
+  margin: 0;
+  font-family: inherit;
+  font-size: 2.24vw;
+}
+.joint-pain-illustration {
+  top: 13.75vh;
+  left: 46.77vw;
+  width: 41.25vw;
+  aspect-ratio: 1 / 1;
+  background: url("../images/joint-pain-illustration.png") center / contain no-repeat;
+  pointer-events: none;
+}
+.info-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+.card-collapsed-art, .card-expanded-art {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.card-one .card-collapsed-art {
+  left: 13.23vw; top: 13.28vh; width: 27.86vw;
+  aspect-ratio: 535 / 208;
+  background-image: url("../images/card-one-closed.png");
+}
+.card-two .card-collapsed-art {
+  left: 13.23vw; top: 46.25vh; width: 27.92vw;
+  aspect-ratio: 536 / 208;
+  background-image: url("../images/card-two-closed.png");
+}
+.card-one .card-expanded-art {
+  left: 12.08vw; top: 12.50vh; width: 30.21vw;
+  aspect-ratio: 580 / 416;
+  background-image: url("../images/card-one-open.png");
+}
+.card-two .card-expanded-art {
+  left: 12.08vw; top: 45.47vh; width: 30.26vw;
+  aspect-ratio: 581 / 416;
+  background-image: url("../images/card-two-open.png");
+}
+.card-expanded-art { opacity: 0; }
+.is-open .card-expanded-art { opacity: 1; }
+.is-open .card-collapsed-art { opacity: 0; }
+.card-heading {
+  --leading: 2vw;
+  font-size: 1.67vw;
+  transform: translateY(calc(5.82vw - 8.73vh));
+}
+.card-one .card-heading { --baseline: 22.02vh; left: 15.47vw; }
+.card-two .card-heading { --baseline: 54.99vh; left: 15.50vw; }
+.card-one.is-open .card-heading { --baseline: 22.51vh; }
+.card-two.is-open .card-heading { --baseline: 55.48vh; left: 15.49vw; }
+.is-open .card-heading { transform: translateY(calc(6.68vw - 10.01vh)); }
+.card-details {
+  --leading: 1.50vw;
+  font-size: 1.25vw;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  /* The body baseline is 269.425 design units below the open artwork crop.
+   * Keep that internal offset proportional to the width-scaled background.
+   * This prevents the final line escaping the card on a 4:3 iPad viewport.
+   */
+  transform: translateY(calc(14.03vw - 21.05vh));
+}
+.card-one .card-details { --baseline: 33.55vh; left: 15.47vw; }
+.card-two .card-details { --baseline: 66.52vh; left: 15.49vw; }
+.is-open .card-details { opacity: 1; visibility: visible; }
+.info-toggle {
+  left: 35.63vw;
+  width: 3.49vw;
+  aspect-ratio: 67 / 68;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.card-one .info-toggle { top: 13.28vh; }
+.card-two .info-toggle { top: 46.25vh; }
+.info-mark {
+  position: absolute;
+  left: 1.42vw;
+  top: calc(3.82vh - 2.88vw / 2 - 0.35em);
+  line-height: 2.88vw;
+  font-size: 2.40vw;
+  transform: translateY(calc(2.55vw - 3.82vh));
+}
+.card-two .info-mark { left: 1.45vw; top: calc(3.97vh - 2.88vw / 2 - 0.35em); transform: translateY(calc(2.64vw - 3.97vh)); }
+.is-open .info-mark { visibility: hidden; }
+.fade-in { opacity: 0; transition: opacity 0.5s ease; }
+.fade-in.show { opacity: 1; }
+
+/* Keep the original global classes and handlers, with measured local artwork. */
+.slide-three #menu, .slide-three #menu .icon {
+  top: 0; left: 0; bottom: auto;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+.slide-three #menu .icon { display: block; }
+.slide-three .logo-crux, .slide-three .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slide-three .logo-crux { left: 7.81vw; width: 13.02vw; aspect-ratio: 25 / 11; background-image: url("../images/nav-logo.png"); }
+.slide-three .bg-icon { width: 5.21vw; aspect-ratio: 10 / 11; pointer-events: auto; }
+.slide-three .home-control { left: 21.88vw; background-image: url("../images/nav-home.png"); }
+.slide-three .reference-control { left: 28.54vw; background-image: url("../images/nav-reference.png"); }
+.slide-three .sitemap-control { left: 35.16vw; background-image: url("../images/nav-sitemap.png"); }
+.slide-three .icon-home, .slide-three .icon-ref, .slide-three .icon-sitemap { position: absolute; inset: 0; background: none; }
+.slide-three .ref-disable { opacity: 1; }
+[role="button"] { cursor: pointer; }
+[aria-disabled="true"] { cursor: default; }
+[role="button"]:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.42vw; border-radius: 1.04vw; }
+.info-toggle:focus-visible { outline: 0.16vw solid #fff; outline-offset: 0.16vw; border-radius: 50%; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .card-collapsed-art, .card-expanded-art, .card-details { transition: none; }
+}
