@@ -1,0 +1,87 @@
+/* Slide 006: PDF page 8, measured directly in Affinity at 1920 x 1280.
+ * Header rectangles: x176.50 / 508.00 / 839.50 / 1171.00 / 1502.50,
+ * y137.00, width241.00, height68.00; Roboto Regular 24, baseline180.00.
+ * Preview rectangles: x176.50 / 508.00 / 839.50 / 1172.00 / 1501.50,
+ * y253.31, width241.00, height176.69. Header pitch: 331.50.
+ * Each 294 x 346 crop includes the original gradients, white border and shadows.
+ * Exact previews from Source Design/Crux_EDA.pdf retain its clipping/transforms.
+ * All artwork is 2x; the background is 1.5x. Labels remain native HTML.
+ * Horizontal coordinates / 19.2 = vw; vertical coordinates / 12.8 = vh.
+ */
+.slide-six.bg {
+  background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat;
+}
+.sitemap-item {
+  top: 9.38vh;
+  width: 15.31vw;
+  aspect-ratio: 147 / 173;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.item-001 { left: 7.81vw; }
+.item-002 { left: 25.08vw; }
+.item-003 { left: 42.34vw; }
+.item-004 { left: 59.61vw; }
+.item-005 { left: 76.88vw; }
+.sitemap-art {
+  top: 0vh;
+  left: 0vw;
+  width: 15.31vw;
+  aspect-ratio: 147 / 173;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+.item-001 .sitemap-art { background-image: url("../images/sitemap-item-001.png"); }
+.item-002 .sitemap-art { background-image: url("../images/sitemap-item-002.png"); }
+.item-003 .sitemap-art { background-image: url("../images/sitemap-item-003.png"); }
+.item-004 .sitemap-art { background-image: url("../images/sitemap-item-004.png"); }
+.item-005 .sitemap-art { background-image: url("../images/sitemap-item-005.png"); }
+.sitemap-label {
+  top: 0vh;
+  left: 0vw;
+  width: 15.31vw;
+  font-size: 1.25vw;
+  line-height: 1.50vw;
+  text-align: center;
+  white-space: nowrap;
+  /* Keep the label baseline tied to its width-scaled source artwork. */
+  transform: translateY(calc(3.13vw - 1.50vw / 2 - 0.35em + 0.05vw));
+  pointer-events: none;
+}
+.sitemap-item:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.63vw; border-radius: 1.04vw; }
+.fade-in { opacity: 0; transition: opacity 0.50s ease; }
+.fade-in.show { opacity: 1; }
+
+/* Source footer includes the active sitemap icon; global files stay unchanged. */
+.slide-six #menu, .slide-six #menu .icon {
+  top: 0; left: 0; bottom: auto;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+.slide-six #menu .icon { display: block; }
+.slide-six .logo-crux, .slide-six .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slide-six .logo-crux { left: 7.81vw; width: 13.02vw; aspect-ratio: 25 / 11; background-image: url("../images/nav-logo.png"); }
+.slide-six .bg-icon { width: 5.21vw; aspect-ratio: 10 / 11; pointer-events: auto; }
+.slide-six .home-control { left: 21.88vw; background-image: url("../images/nav-home.png"); }
+.slide-six .reference-control { left: 28.54vw; background-image: url("../images/nav-reference.png"); }
+.slide-six .sitemap-control { left: 35.16vw; background-image: url("../images/nav-sitemap.png"); }
+.slide-six .icon-home, .slide-six .icon-ref, .slide-six .icon-sitemap { position: absolute; inset: 0; background: none; }
+.slide-six .ref-disable { opacity: 1; }
+[role="button"] { cursor: pointer; }
+[aria-disabled="true"] { cursor: default; }
+[role="button"]:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.42vw; border-radius: 1.04vw; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { transition: none; }
+}
