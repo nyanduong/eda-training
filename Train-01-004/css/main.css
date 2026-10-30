@@ -1,0 +1,164 @@
+/* Slide 004 is PDF page 6. Canvas: 1920 x 1280.
+ * Measured directly in Affinity, then checked against the source PDF paths:
+ * title Roboto Bold 43; chart heading Regular 32; labels Regular 22; values Bold 24.
+ * Vertical axis: x297.74, y413.23, height449.50. Baseline: y862.73, width1223.78.
+ * Each bar is 78.35 wide. Heights, in reading order:
+ * 394.75, 213.50, 281.13, 349.75, 305.50, 192.73, 230.73, 269.63, 332.73, 252.73.
+ * Images are separate source artwork, at 2x; all wording/numbers stay live HTML.
+ * Horizontal coordinates / 19.2 = vw; vertical coordinates / 12.8 = vh.
+ */
+.slide-four.bg { background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat; }
+.slide-four .green { color: #417b57; }
+.baseline-text {
+  top: calc(var(--baseline) - var(--leading) / 2 - 0.35em + 0.05vw);
+  line-height: var(--leading);
+  white-space: nowrap;
+}
+.slide-four .main-title {
+  --baseline: 8.77vh;
+  --leading: 4.03vh;
+  left: 8.44vw;
+  width: 75.03vw;
+  margin: 0;
+  font-family: inherit;
+  font-size: 2.24vw;
+  color: #417b56;
+}
+.chart-heading { --leading: 2vw; font-size: 1.67vw; }
+.heading-first { --baseline: 26.38vh; left: 22.48vw; }
+.heading-second { --baseline: 29.38vh; left: 26.26vw; }
+
+/* Anchor at the common baseline. Internal vertical offsets scale with the image
+ * width, so bars, ticks and labels keep their proportions on a 4:3 iPad too.
+ * Top/bottom anchors use vh; the transforms follow the source image aspect ratio.
+ */
+.chart-plot { bottom: 32.50vh; left: 0vw; width: 100vw; height: 0vh; }
+.chart-axes {
+  left: 14.74vw; bottom: 0vh; width: 63.91vw;
+  aspect-ratio: 1227 / 453;
+  background: url("../images/chart-axes.png") center / contain no-repeat;
+}
+.plot-text {
+  --leading: 1.38vw;
+  top: 0vh;
+  line-height: var(--leading);
+  font-size: 1.15vw;
+  white-space: nowrap;
+  transform: translateY(calc(var(--baseline-offset) - var(--leading) / 2 - 0.35em + 0.05vw));
+}
+.tick-label { left: 12.51vw; }
+.tick-0 { left: 13.30vw; }
+.tick-80 { --baseline-offset: -23.07vw; }
+.tick-70 { --baseline-offset: -20.15vw; }
+.tick-60 { --baseline-offset: -17.23vw; }
+.tick-50 { --baseline-offset: -14.30vw; }
+.tick-40 { --baseline-offset: -11.38vw; }
+.tick-30 { --baseline-offset: -8.46vw; }
+.tick-20 { --baseline-offset: -5.53vw; }
+.tick-10 { --baseline-offset: -2.61vw; }
+.tick-0 { --baseline-offset: 0.31vw; }
+.category { --baseline-offset: 1.76vw; }
+.category-one { left: 22.47vw; }
+.category-two { left: 33.56vw; }
+.category-three { left: 44.61vw; }
+.category-four { left: 55.66vw; }
+.category-five { left: 66.72vw; }
+.category-five { --baseline-offset: 1.72vw; }
+.vertical-caption {
+  left: 9.30vw; top: 0vh;
+  font-size: 1.15vw; line-height: 1.38vw;
+  white-space: nowrap;
+  transform: translateY(-2.44vw) rotate(-90deg);
+  transform-origin: 0 0;
+}
+.vertical-line { top: calc(-1.38vw / 2 - 0.35em); }
+.line-first { left: 0vw; }
+.line-second { left: 3.92vw; transform: translateY(1.38vw); }
+.column-art {
+  bottom: 0vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform 0.65s ease;
+}
+.column-art.show { transform: scaleY(1); }
+.chart-value {
+  --leading: 1.50vw;
+  font-size: 1.25vw;
+  opacity: 0;
+  transition: opacity 0.30s ease 0.35s;
+}
+.chart-value.show { opacity: 1; }
+.column-one { left: 20.21vw; width: 4.22vw; aspect-ratio: 81 / 397; background-image: url("../images/column-one.png"); }
+.value-one { left: 21.14vw; --baseline-offset: -14.94vw; }
+.column-two { left: 24.69vw; width: 4.22vw; aspect-ratio: 81 / 216; background-image: url("../images/column-two.png"); }
+.value-two { left: 25.63vw; --baseline-offset: -5.55vw; }
+.column-three { left: 31.30vw; width: 4.22vw; aspect-ratio: 81 / 284; background-image: url("../images/column-three.png"); }
+.value-three { left: 32.21vw; --baseline-offset: -9.08vw; }
+.column-four { left: 35.78vw; width: 4.22vw; aspect-ratio: 81 / 352; background-image: url("../images/column-four.png"); }
+.value-four { left: 36.72vw; --baseline-offset: -12.65vw; }
+.column-five { left: 42.34vw; width: 4.22vw; aspect-ratio: 81 / 308; background-image: url("../images/column-five.png"); }
+.value-five { left: 43.27vw; --baseline-offset: -10.35vw; }
+.column-six { left: 46.82vw; width: 4.27vw; aspect-ratio: 82 / 195; background-image: url("../images/column-six.png"); }
+.value-six { left: 47.77vw; --baseline-offset: -4.47vw; }
+.column-seven { left: 53.39vw; width: 4.22vw; aspect-ratio: 81 / 233; background-image: url("../images/column-seven.png"); }
+.value-seven { left: 54.32vw; --baseline-offset: -6.45vw; }
+.column-eight { left: 57.86vw; width: 4.27vw; aspect-ratio: 82 / 272; background-image: url("../images/column-eight.png"); }
+.value-eight { left: 58.82vw; --baseline-offset: -8.48vw; }
+.column-nine { left: 64.43vw; width: 4.27vw; aspect-ratio: 82 / 335; background-image: url("../images/column-nine.png"); }
+.value-nine { left: 65.37vw; --baseline-offset: -11.76vw; }
+.column-ten { left: 68.96vw; width: 4.22vw; aspect-ratio: 81 / 255; background-image: url("../images/column-ten.png"); }
+.value-ten { left: 69.87vw; --baseline-offset: -7.60vw; }
+.legend-art { background-position: center; background-size: contain; background-repeat: no-repeat; }
+.legend-gray {
+  left: 81.30vw; bottom: 0vh; width: 1.82vw;
+  aspect-ratio: 35 / 34;
+  transform: translateY(-4.32vw);
+  background-image: url("../images/legend-gray.png");
+}
+.legend-green {
+  left: 81.35vw; bottom: 0vh; width: 1.77vw;
+  aspect-ratio: 1 / 1;
+  transform: translateY(0.10vw);
+  background-image: url("../images/legend-green.png");
+}
+.legend-label { left: 85.12vw; }
+.legend-gray-label { --baseline-offset: -4.78vw; }
+.legend-green-label { --baseline-offset: -0.37vw; }
+.caption-first { left: 18.24vw; --baseline-offset: 4.89vw; }
+.caption-second { left: 35.89vw; --baseline-offset: 6.26vw; }
+.fade-in { opacity: 0; transition: opacity 0.50s ease; }
+.fade-in.show { opacity: 1; }
+
+/* Reuse the unchanged global navigation handlers with source footer artwork. */
+.slide-four #menu, .slide-four #menu .icon {
+  top: 0; left: 0; bottom: auto;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+.slide-four #menu .icon { display: block; }
+.slide-four .logo-crux, .slide-four .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slide-four .logo-crux { left: 7.81vw; width: 13.02vw; aspect-ratio: 25 / 11; background-image: url("../images/nav-logo.png"); }
+.slide-four .bg-icon { width: 5.21vw; aspect-ratio: 10 / 11; pointer-events: auto; }
+.slide-four .home-control { left: 21.88vw; background-image: url("../images/nav-home.png"); }
+.slide-four .reference-control { left: 28.54vw; background-image: url("../images/nav-reference.png"); }
+.slide-four .sitemap-control { left: 35.16vw; background-image: url("../images/nav-sitemap.png"); }
+.slide-four .icon-home, .slide-four .icon-ref, .slide-four .icon-sitemap { position: absolute; inset: 0; background: none; }
+.slide-four .ref-disable { opacity: 1; }
+[role="button"] { cursor: pointer; }
+[aria-disabled="true"] { cursor: default; }
+[role="button"]:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.42vw; border-radius: 1.04vw; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .column-art, .chart-value { transition: none; }
+}
