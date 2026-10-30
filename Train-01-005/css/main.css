@@ -1,0 +1,103 @@
+/* Slide 005: PDF page 7, measured directly in Affinity on a 1920 x 1280 canvas.
+ * Photo clipping frame: x210.50, y0, width1499.00, height501.00.
+ * Card body frames: x163.39 / 713.91 / 1264.43, y578.28, width492.18, height377.72.
+ * Gradient headers: y576.00, width494.96, height118.69; Roboto Regular 32.
+ * Body: Roboto Regular 24, baseline764.50, leading28.80, six explicit lines.
+ * Source artwork retains the original gradient, border and photo clipping.
+ * Cards are 2x PNGs; the transparent hero is 1.5x, 1.10 MB (README's 1.5 MB exception).
+ * Horizontal coordinates / 19.2 = vw; vertical coordinates / 12.8 = vh.
+ */
+.slide-five.bg {
+  background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat;
+}
+.slide-five .green { color: #417b56; }
+.couple-hero {
+  top: 0vh;
+  left: 10.89vw;
+  width: 78.23vw;
+  aspect-ratio: 2252 / 754;
+  background: url("../images/couple-hero.png") center / contain no-repeat;
+  pointer-events: none;
+}
+.info-card {
+  top: 44.84vh;
+  width: 26.04vw;
+  aspect-ratio: 500 / 384;
+}
+.card-one { left: 8.33vw; width: 25.99vw; aspect-ratio: 499 / 384; }
+.card-two { left: 36.98vw; }
+.card-three { left: 65.68vw; }
+.card-art {
+  top: 0vh;
+  left: 0vw;
+  width: 26.04vw;
+  aspect-ratio: 500 / 384;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.card-one .card-art { width: 25.99vw; aspect-ratio: 499 / 384; background-image: url("../images/card-one.png"); }
+.card-two .card-art { background-image: url("../images/card-two.png"); }
+.card-three .card-art { background-image: url("../images/card-three.png"); }
+/* Internal baseline offsets follow each width-scaled card, keeping all six body
+ * lines inside its white panel when the viewport changes to a 4:3 iPad ratio.
+ */
+.card-heading, .card-body {
+  top: 0vh;
+  left: 0vw;
+  width: 26.04vw;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.card-one .card-heading, .card-one .card-body { width: 25.99vw; }
+.card-heading {
+  --leading: 2vw;
+  font-size: 1.67vw;
+  line-height: var(--leading);
+  transform: translateY(calc(2.85vw - var(--leading) / 2 - 0.35em + 0.05vw));
+}
+.card-body {
+  --leading: 1.50vw;
+  font-size: 1.25vw;
+  line-height: var(--leading);
+  transform: translateY(calc(9.92vw - var(--leading) / 2 - 0.35em + 0.05vw));
+}
+/* Text centers in the source differ slightly from the artwork crop centers. */
+.card-two .card-heading, .card-two .card-body { left: -0.03vw; }
+.card-three .card-heading, .card-three .card-body { left: -0.11vw; }
+.fade-in { opacity: 0; transition: opacity 0.50s ease; }
+.fade-in.show { opacity: 1; }
+
+/* Keep the original global handlers and reuse their measured footer layout. */
+.slide-five #menu, .slide-five #menu .icon {
+  top: 0; left: 0; bottom: auto;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+.slide-five #menu .icon { display: block; }
+.slide-five .logo-crux, .slide-five .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slide-five .logo-crux { left: 7.81vw; width: 13.02vw; aspect-ratio: 25 / 11; background-image: url("../images/nav-logo.png"); }
+.slide-five .bg-icon { width: 5.21vw; aspect-ratio: 10 / 11; pointer-events: auto; }
+.slide-five .home-control { left: 21.88vw; background-image: url("../images/nav-home.png"); }
+.slide-five .reference-control { left: 28.54vw; background-image: url("../images/nav-reference.png"); }
+.slide-five .sitemap-control { left: 35.16vw; background-image: url("../images/nav-sitemap.png"); }
+.slide-five .icon-home, .slide-five .icon-ref, .slide-five .icon-sitemap { position: absolute; inset: 0; background: none; }
+.slide-five .ref-disable { opacity: 1; }
+[role="button"] { cursor: pointer; }
+[aria-disabled="true"] { cursor: default; }
+[role="button"]:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.42vw; border-radius: 1.04vw; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { transition: none; }
+}
