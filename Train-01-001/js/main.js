@@ -47,7 +47,7 @@ $(document).ready(function () {
     var el = document.getElementById('container');
     swipedetect(el, function (swipedir) {
         if (swipedir == 'left') {
-            window.goToSlide("003");
+            window.goToSlide("002");
         }
         if (swipedir == 'right') {
             // disableSwipe = true;

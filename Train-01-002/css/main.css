@@ -1,0 +1,234 @@
+/* Page 2 is slide 002; page 3 is its reference popup.
+ * Measured in Affinity: 1920 x 1280 canvas, title frame (162,80),
+ * chart caption (352.46,296), first column (363.33,467.98),
+ * baseline y 862.73, callout (1412,584), popup (161.5,201.63).
+ * Horizontal dimensions / 19.2 = vw; vertical / 12.8 = vh.
+ * All artwork is extracted independently from Source Design/Crux_EDA.pdf.
+ */
+@font-face {
+  font-family: "din-next-reference";
+  src: url("../global/font/din-next-reference.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.slide-two.bg {
+  background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat;
+}
+
+.slide-two .green { color: #417c57; }
+
+/* Align live text to the original PDF baselines, allowing for font ascent. */
+.baseline-text {
+  top: calc(var(--baseline) - var(--leading) / 2 - 0.35em);
+  line-height: var(--leading);
+  white-space: nowrap;
+}
+
+.slide-two .main-title {
+  --baseline: 8.77vh;
+  --leading: 4.03vh;
+  left: 8.44vw;
+  width: 75.03vw;
+  margin: 0;
+  font-family: inherit;
+  font-size: 2.24vw;
+  letter-spacing: 0;
+}
+
+.main-title sup { font-size: 58.30%; }
+
+.chart-heading {
+  --baseline: 25vh;
+  --leading: 3vh;
+  left: 18.36vw;
+  width: 32.81vw;
+  font-size: 1.67vw;
+  text-align: center;
+}
+
+.vertical-axis {
+  left: 15.51vw;
+  top: 32.28vh;
+  height: 35.12vh;
+  border-left: 0.05vw solid #000;
+}
+
+.primary-baseline,
+.secondary-baseline {
+  top: 67.40vh;
+  border-top: 0.10vw solid #000;
+}
+.primary-baseline { left: 14.82vw; width: 39.77vw; }
+.secondary-baseline { left: 57.03vw; width: 14.11vw; }
+
+.tick { left: 14.82vw; width: 0.64vw; border-top: 0.05vw solid #000; }
+.tick-eighty { top: 32.24vh; }
+.tick-sixty { top: 40.80vh; }
+.tick-forty { top: 49.36vh; }
+.tick-twenty { top: 57.91vh; }
+
+.column-outline {
+  top: 32.24vh;
+  width: 4.38vw;
+  height: 35.16vh;
+  border: 0.05vw solid #54b5bd;
+  border-bottom: 0;
+  border-radius: 0.63vw 0.63vw 0 0;
+  box-sizing: border-box;
+}
+.outline-one { left: 58.45vw; }
+.outline-two { left: 65.35vw; }
+
+.chart-labels { font-size: 1.15vw; }
+.vertical-caption {
+  left: 8.18vw;
+  top: 37.20vh;
+  width: 2.75vw;
+  height: 25.20vh;
+}
+.vertical-caption span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 19.79vw;
+  line-height: 1.38vw;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+.horizontal-caption {
+  --baseline: 75.87vh;
+  --leading: 2.06vh;
+  left: 18.36vw;
+  width: 32.81vw;
+  text-align: center;
+}
+.tick-label { --leading: 2.06vh; left: 12.50vw; }
+.label-eighty { --baseline: 32.89vh; }
+.label-sixty { --baseline: 41.45vh; }
+.label-forty { --baseline: 50vh; }
+.label-twenty { --baseline: 58.55vh; }
+.label-zero { --baseline: 67.97vh; left: 13.30vw; }
+.category { --baseline: 70.13vh; --leading: 2.06vh; }
+.category-one { left: 19.02vw; }
+.category-two { left: 25.93vw; }
+.category-three { left: 32.83vw; }
+.category-four { left: 39.74vw; }
+.category-five { left: 46.65vw; }
+
+/* One image dimension only; the original crop ratio supplies the height.
+ * Anchoring at the shared baseline makes the columns rise from the bottom.
+ */
+.column-art {
+  bottom: 32.50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform 0.65s ease;
+}
+.column-art.show { transform: scaleY(1); }
+.column-one { left: 18.85vw; width: 4.53vw; aspect-ratio: 87 / 397; background-image: url("../images/column-one.png"); }
+.column-two { left: 25.78vw; width: 4.48vw; aspect-ratio: 86 / 307; background-image: url("../images/column-two.png"); }
+.column-three { left: 32.71vw; width: 4.48vw; aspect-ratio: 86 / 233; background-image: url("../images/column-three.png"); }
+.column-four { left: 39.58vw; width: 4.53vw; aspect-ratio: 87 / 155; background-image: url("../images/column-four.png"); }
+.column-five { left: 46.51vw; width: 4.48vw; aspect-ratio: 86 / 355; background-image: url("../images/column-five.png"); }
+.column-six { bottom: 32.42vh; left: 58.39vw; width: 4.53vw; aspect-ratio: 87 / 259; background-image: url("../images/column-six.png"); }
+.column-seven { bottom: 32.42vh; left: 65.26vw; width: 4.58vw; aspect-ratio: 88 / 167; background-image: url("../images/column-seven.png"); }
+
+.chart-value {
+  --leading: 2.25vh;
+  font-size: 1.25vw;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.35s;
+}
+.chart-value.show { opacity: 1; }
+.value-one { --baseline: 45.09vh; left: 19.93vw; }
+.value-two { --baseline: 52.06vh; left: 26.84vw; }
+.value-three { --baseline: 57.84vh; left: 33.75vw; }
+.value-four { --baseline: 64vh; left: 40.65vw; }
+.value-five { --baseline: 48.39vh; left: 47.56vw; }
+.value-six { --baseline: 55.87vh; left: 59.43vw; }
+.value-seven { --baseline: 63.06vh; left: 66.36vw; }
+
+.callout-art {
+  top: 45.55vh;
+  left: 73.49vw;
+  width: 18.18vw;
+  aspect-ratio: 349 / 212;
+  background: url("../images/callout.png") center / contain no-repeat;
+}
+.callout-copy {
+  --baseline: 50.01vh;
+  --leading: 2.25vh;
+  left: 73.54vw;
+  width: 18.07vw;
+  font-size: 1.25vw;
+  text-align: center;
+}
+
+.fade-in { opacity: 0; transition: opacity 0.5s ease; }
+.fade-in.show { opacity: 1; }
+
+/* Reuse global navigation classes; only the measured geometry/artwork differs. */
+.slide-two #menu, .slide-two #menu .icon {
+  top: 0; left: 0; bottom: auto;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
+.slide-two #menu .icon { display: block; }
+.slide-two .logo-crux, .slide-two .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.slide-two .logo-crux { left: 7.81vw; width: 13.02vw; aspect-ratio: 25 / 11; background-image: url("../images/nav-logo.png"); }
+.slide-two .bg-icon { width: 5.21vw; aspect-ratio: 10 / 11; pointer-events: auto; }
+.slide-two .home-control { left: 21.88vw; background-image: url("../images/nav-home.png"); }
+.slide-two .reference-control { left: 28.54vw; background-image: url("../images/nav-reference.png"); }
+.slide-two .sitemap-control { left: 35.16vw; background-image: url("../images/nav-sitemap.png"); }
+.slide-two .icon-home, .slide-two .icon-ref, .slide-two .icon-sitemap { position: absolute; inset: 0; background: none; }
+.reference-open .slide-two .reference-control { z-index: 10; background-image: url("../images/nav-reference-active.png"); }
+
+.slide-two .ref-container::before { opacity: 0.92; }
+.slide-two .ref-content { background: none; }
+.reference-panel {
+  left: 8.28vw;
+  top: 15.55vh;
+  width: 83.49vw;
+  aspect-ratio: 1603 / 883;
+  background: url("../images/reference-panel.png") center / contain no-repeat;
+}
+.reference-title { --baseline: 26.80vh; --leading: 3vh; left: 14.58vw; font-size: 1.67vw; }
+.reference-number { --baseline: 32.62vh; --leading: 2.06vh; left: 14.58vw; font-size: 1.15vw; }
+.reference-entry {
+  --baseline: 32.62vh;
+  --leading: 2.06vh;
+  top: calc(var(--baseline) - var(--leading) / 2 - 0.25em);
+  left: 15.81vw;
+  font-family: "din-next-reference", "roboto", sans-serif;
+  font-size: 1.15vw;
+  letter-spacing: -0.01vw;
+  color: #5a5a5a;
+}
+.slide-two .ref-close {
+  left: 83.33vw; right: auto; top: 13.13vh;
+  width: 3.59vw; height: auto;
+  aspect-ratio: 69 / 68;
+  background: url("../images/reference-close.png") center / contain no-repeat;
+}
+[role="button"] { cursor: pointer; }
+[role="button"]:focus-visible { outline: 0.16vw solid #417b56; outline-offset: -0.42vw; border-radius: 1.04vw; }
+.ref-close:focus-visible { border-radius: 50%; outline-offset: 0; }
+[role="button"].pointer-focus:focus-visible { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .column-art, .chart-value { transition: none; }
+}
