@@ -1,0 +1,147 @@
+/* Slide 001 — Source Design/Crux_EDA.pdf, page 1.
+ * Measured in Affinity from Crux_EDA.idml and Link/Slide 1.ai.
+ * Canvas: 1920 x 1280. Horizontal values / 19.2 = vw;
+ * vertical values / 12.8 = vh. Rounded to two decimals.
+ * Images retain one explicit dimension and their original aspect ratio.
+ */
+.slide-one.bg {
+  background: #fff url("../images/slide-background.jpg") center / 100% 100% no-repeat;
+}
+
+/* Affinity frames: x 162; title y 458.78, w 816; copy y 707.77, w 861.
+ * Align CSS line boxes to the PDF baselines, rather than the frame edges.
+ * Title: Roboto Bold 60, leading 72. Copy: Regular 30, leading 36.
+ */
+.slide-one .main-title {
+  top: 34.91vh;
+  left: 8.44vw;
+  width: 42.50vw;
+  font-family: inherit;
+  font-size: 3.13vw;
+  line-height: 5.63vh;
+  letter-spacing: 0;
+  color: #417b54;
+}
+
+.intro-copy {
+  top: 55.61vh;
+  left: 8.44vw;
+  width: 44.84vw;
+  font-size: 1.56vw;
+  line-height: 2.81vh;
+  color: #437e5b;
+}
+
+.main-title,
+.intro-copy {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Affinity: x 975, y 388, w/h 905, including transparent padding. */
+.crux-product {
+  top: 30.31vh;
+  left: 50.78vw;
+  width: 47.14vw;
+  aspect-ratio: 1 / 1;
+  background: url("../images/crux-product.png") center / contain no-repeat;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+/* Original navigation artwork, including transparent shadow padding.
+ * Visible logo: (162, 1137), 220 x 82; Home: (427.5, 1137), 82 x 82.
+ */
+.slide-one #menu,
+.slide-one #menu .icon {
+  top: 0;
+  left: 0;
+  bottom: auto;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.slide-one #menu .icon {
+  display: block;
+}
+
+.slide-one .logo-crux,
+.slide-one .bg-icon {
+  top: 88.28vh;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.slide-one .logo-crux {
+  left: 7.81vw;
+  width: 13.02vw;
+  aspect-ratio: 25 / 11;
+  background-image: url("../images/nav-logo.png");
+}
+
+.slide-one .bg-icon {
+  width: 5.21vw;
+  aspect-ratio: 10 / 11;
+  pointer-events: auto;
+}
+
+.slide-one .home-control {
+  left: 21.88vw;
+  background-image: url("../images/nav-home.png");
+}
+
+.slide-one .reference-control {
+  left: 28.54vw;
+  background-image: url("../images/nav-reference.png");
+}
+
+.slide-one .sitemap-control {
+  left: 35.16vw;
+  background-image: url("../images/nav-sitemap.png");
+}
+
+.slide-one .icon-home,
+.slide-one .icon-ref,
+.slide-one .icon-sitemap {
+  position: absolute;
+  inset: 0;
+  background: none;
+}
+
+.slide-one .ref-disable {
+  opacity: 1;
+}
+
+.slide-one [role="button"] {
+  cursor: pointer;
+}
+
+.slide-one [aria-disabled="true"] {
+  cursor: default;
+}
+
+.slide-one [role="button"]:focus-visible {
+  outline: 0.16vw solid #417b56;
+  outline-offset: -0.42vw;
+  border-radius: 1.04vw;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transition: none;
+  }
+}
